@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/coolc-productsubscription/subscription" method="POST">
+		<service class="CoolC\ProductSubscription\Api\SubscriptionRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="CoolC_ProductSubscription::subscription_save"/>
+		</resources>
+	</route>
+	<route url="/V1/coolc-productsubscription/subscription/search" method="GET">
+		<service class="CoolC\ProductSubscription\Api\SubscriptionRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="CoolC_ProductSubscription::subscription_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coolc-productsubscription/subscription/:subscriptionId" method="GET">
+		<service class="CoolC\ProductSubscription\Api\SubscriptionRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="CoolC_ProductSubscription::subscription_view"/>
+		</resources>
+	</route>
+	<route url="/V1/coolc-productsubscription/subscription/:subscriptionId" method="PUT">
+		<service class="CoolC\ProductSubscription\Api\SubscriptionRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="CoolC_ProductSubscription::subscription_update"/>
+		</resources>
+	</route>
+	<route url="/V1/coolc-productsubscription/subscription/:subscriptionId" method="DELETE">
+		<service class="CoolC\ProductSubscription\Api\SubscriptionRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="CoolC_ProductSubscription::subscription_delete"/>
+		</resources>
+	</route>
+</routes>

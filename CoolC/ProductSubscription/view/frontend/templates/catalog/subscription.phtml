@@ -1,0 +1,40 @@
+<?php
+if ($block->isCustomerLoggedIn()) {
+    $getLoadSubscriptionModel = $block->getLoadSubscription();
+    if($getLoadSubscriptionModel){
+    $getLoadSubscription = $getLoadSubscriptionModel->getData()
+?>
+<p><input name="subscription" required="required" type="radio" value="0"/><br />
+    One time</p>
+
+<p><input checked="checked" name="subscription" required="required" type="radio" value="1"/></p>
+
+<p>Subscription</p>
+
+<div class="duration">Duration&nbsp;<select name="duration" class="select-duration" required="required">
+        <option selected="selected" value="">Select</option>
+        <?php
+        foreach($getLoadSubscription as $item){?>
+            <option value="<?php echo $item['duration']?>"><?php echo $item['title']?></option>
+        <?php }
+        ?>
+    </select></div>
+
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        $(".product-info-after-price").find('input[type="radio"]').click(function () {
+            if($(this).val() == 0){
+                $(".select-duration").removeAttr("required");
+                $(".duration").hide();
+            }else{
+                $(".select-duration").attr('required', 'required');;
+                $(".duration").show();
+            }
+        });
+        $(".product-info-after-price").prependTo(".product-options-bottom");
+    });
+</script>
+<?php }
+}?>

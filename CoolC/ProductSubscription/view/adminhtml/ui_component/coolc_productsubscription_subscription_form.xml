@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">coolc_productsubscription_subscription_form.subscription_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="CoolC\ProductSubscription\Block\Adminhtml\Subscription\Edit\BackButton"/>
+			<button name="delete" class="CoolC\ProductSubscription\Block\Adminhtml\Subscription\Edit\DeleteButton"/>
+			<button name="save" class="CoolC\ProductSubscription\Block\Adminhtml\Subscription\Edit\SaveButton"/>
+			<button name="save_and_continue" class="CoolC\ProductSubscription\Block\Adminhtml\Subscription\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>coolc_productsubscription_subscription_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>coolc_productsubscription_subscription_form.subscription_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="subscription_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="subscription_form_data_source" class="CoolC\ProductSubscription\Model\Subscription\DataProvider">
+			<settings>
+				<requestFieldName>subscription_id</requestFieldName>
+				<primaryFieldName>subscription_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="title" formElement="input" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">subscription</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Title</label>
+				<dataScope>title</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field name="duration" formElement="input" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">subscription</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Duration</label>
+				<dataScope>duration</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<!--<field name="created" formElement="input" sortOrder="40">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">subscription</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">created</label>
+				<dataScope>created</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>-->
+		<!--<field name="updated" formElement="input" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">subscription</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">updated</label>
+				<dataScope>updated</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>-->
+	</fieldset>
+</form>

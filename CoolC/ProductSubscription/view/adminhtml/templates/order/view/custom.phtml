@@ -1,0 +1,11 @@
+<div class="admin__page-section-item">
+    <?php    $_order = $block->getOrder();
+    $order_id = $_order->getId();
+    ?>
+    <form method="get" action="<?= $block->getUrl('orderfields/order/save') ?>">
+        <label><?= __('Discount Order #:') ?></label>
+        <input type="text" name="discount_order" value="<?= $_order->getDiscountOrder() ?>" placeholder="">
+        <input type="hidden" name="id" value="<?= $_order->getId() ?>" placeholder="">
+        <input class="action-default scalable edit primary" type="submit" name="update" value="Save">
+    </form>
+</div>

@@ -1,0 +1,22 @@
+{
+    "name": "coolc/module-productsubscription",
+    "description": "ProductSubscription",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Chamara Agalakotuwa",
+            "email": "chamarabuddika@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CoolC\\ProductSubscription\\": ""
+        }
+    }
+}

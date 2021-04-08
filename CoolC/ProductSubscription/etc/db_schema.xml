@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="coolc_productsubscription_subscription" resource="default" engine="innodb" comment="coolc_productsubscription_subscription Table">
+		<column xsi:type="smallint" name="subscription_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="subscription_id"/>
+		</constraint>
+		<column name="title" nullable="true" xsi:type="varchar" comment="title" length="255"/>
+		<column name="duration" nullable="true" xsi:type="varchar" comment="duration" length="255"/>
+		<column name="created" nullable="true" xsi:type="datetime" comment="created"/>
+		<column name="updated" nullable="true" xsi:type="datetime" comment="updated"/>
+	</table>
+
+    <table name="coolc_productsubscription_customer_subscriptions" resource="default" engine="innodb" comment="coolc_productsubscription_customer_subscriptions Table">
+        <column xsi:type="smallint" name="customer_subscriptions_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="customer_subscriptions_id"/>
+        </constraint>
+        <column name="customer_id" nullable="true" xsi:type="int" comment="customer_id" identity="false"/>
+        <column name="product_id" nullable="true" xsi:type="int" comment="product_id" identity="false"/>
+        <column name="duration" nullable="true" xsi:type="int" comment="duration" identity="false"/>
+        <column name="order_id" nullable="true" xsi:type="int" comment="order_id" identity="false"/>
+    </table>
+    <table name="sales_order">
+        <column comment="discount_order order" length="255" name="discount_order" nullable="true" xsi:type="varchar"/>
+        <column comment="subscription order" length="1" name="subscription" nullable="true" xsi:type="int"/>
+        <column comment="duration order" length="255" name="duration" nullable="true" xsi:type="int"/>
+    </table>
+    <table name="quote">
+        <column comment="subscription order" length="1" name="subscription" nullable="true" xsi:type="int"/>
+        <column comment="duration order" length="255" name="duration" nullable="true" xsi:type="int"/>
+    </table>
+</schema>

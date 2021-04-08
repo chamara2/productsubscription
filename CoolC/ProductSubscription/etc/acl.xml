@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="CoolC_ProductSubscription::subscription" title="subscription" sortOrder="10">
+					<resource id="CoolC_ProductSubscription::subscription_save" title="Save Duration" sortOrder="10"/>
+					<resource id="CoolC_ProductSubscription::subscription_delete" title="Delete Duration" sortOrder="20"/>
+					<resource id="CoolC_ProductSubscription::subscription_update" title="Update Duration" sortOrder="30"/>
+					<resource id="CoolC_ProductSubscription::subscription_view" title="View Duration" sortOrder="40"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>
